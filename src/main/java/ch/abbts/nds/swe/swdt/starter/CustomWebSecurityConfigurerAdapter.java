@@ -18,7 +18,7 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     http
         .csrf().disable()
         .authorizeRequests()
-        .antMatchers("/secure-greet").permitAll()
+        .antMatchers("/greet/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .httpBasic();

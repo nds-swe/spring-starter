@@ -1,10 +1,10 @@
 # Basic dXNlcjpwYXNzd29yZA== is the result of base64 encoding the phrase "user:password"
 # https://www.base64encode.org/
-GET /greet/ HTTP/1.1
+GET /employees/ HTTP/1.1
 Host: localhost:8080
 
 ###
 
-GET /secure-greet/ HTTP/1.1
+GET /secure-employees/ HTTP/1.1
 Host: localhost:8080
 Authorization: Basic dXNlcjpwYXNzd29yZA==

@@ -19,14 +19,16 @@ dependencies {
     implementation 'org.springframework.security:spring-security-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.rest-assured:rest-assured:4.4.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
 test {
-	useJUnitPlatform()
-	useJUnit {
-    	exclude '**/*IT.class'
+	useJUnitPlatform{
+	    includeTags 'unit'
+	}
+    testLogging {
+        events "passed", "skipped", "failed"
     }
 }
 
@@ -34,10 +36,12 @@ task integrationTest(type: Test) {
     dependsOn build
 	description = 'Runs integration tests.'
 	group = 'verification'
-	useJUnitPlatform()
-	useJUnit {
-		include '**/*IT.class'
-	}
+	useJUnitPlatform{
+        includeTags 'IT'
+    }
+	testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
 
 dockerCompose.isRequiredBy(integrationTest)

@@ -2,9 +2,4 @@
 # https://www.base64encode.org/
 GET /employees/ HTTP/1.1
 Host: localhost:8080
-
-###
-
-GET /secure-employees/ HTTP/1.1
-Host: localhost:8080
 Authorization: Basic dXNlcjpwYXNzd29yZA==

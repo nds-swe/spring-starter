@@ -30,12 +30,11 @@ test {
     }
 }
 
-apply plugin: 'docker-compose'
-
 task integrationTest(type: Test) {
     dependsOn build
 	description = 'Runs integration tests.'
 	group = 'verification'
+	useJUnitPlatform()
 	useJUnit {
 		include '**/*IT.class'
 	}

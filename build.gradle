@@ -1,4 +1,5 @@
 plugins {
+	id 'com.avast.gradle.docker-compose' version "0.14.3"
 	id 'org.springframework.boot' version '2.5.0'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
@@ -29,10 +30,15 @@ test {
     }
 }
 
+apply plugin: 'docker-compose'
+
 task integrationTest(type: Test) {
+    dependsOn build
 	description = 'Runs integration tests.'
 	group = 'verification'
 	useJUnit {
 		include '**/*IT.class'
 	}
 }
+
+dockerCompose.isRequiredBy(integrationTest)

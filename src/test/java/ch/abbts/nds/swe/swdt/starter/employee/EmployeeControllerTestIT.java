@@ -16,7 +16,7 @@ public class EmployeeControllerTestIT {
         get("/employees/").
         then().
         statusCode(200).
-        body("size()", is(3)
+        body("size()", is(5) // it must fail!!!
     );
   }
 }

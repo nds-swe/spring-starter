@@ -34,3 +34,13 @@ jobs:
         with:
           files: build/test-results/**/*.xml
           check_name: Integration Test Results
+
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build . -t ndshfswe.azurecr.io/spring-starter:${{ github.sha }}
+      - uses: Azure/container-scan@v0
+        with:
+          severity-threshold: MEDIUM
+          image-name: ndshfswe.azurecr.io/spring-starter:${{ github.sha }}

@@ -26,6 +26,7 @@ dependencies {
 test {
 	useJUnitPlatform{
 	    includeTags 'unit'
+	    excludeTags 'IT'
 	}
     testLogging {
         events "passed", "skipped", "failed"
@@ -38,6 +39,7 @@ task integrationTest(type: Test) {
 	group = 'verification'
 	useJUnitPlatform{
         includeTags 'IT'
+        excludeTags 'unit'
     }
 	testLogging {
         events "passed", "skipped", "failed"

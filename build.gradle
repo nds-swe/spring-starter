@@ -34,7 +34,7 @@ test {
 }
 
 task integrationTest(type: Test) {
-    dependsOn build
+    dependsOn assemble
 	description = 'Runs integration tests.'
 	group = 'verification'
 	useJUnitPlatform{

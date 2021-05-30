@@ -1,4 +1,4 @@
-name: Pull Request Scan
+name: Weekly Container Scan
 on:
   schedule:
     - cron: '0 2 * * 0'

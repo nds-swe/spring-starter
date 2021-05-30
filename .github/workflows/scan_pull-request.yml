@@ -1,4 +1,4 @@
-name: Weekly Container Scan
+name: Container Scan
 on:
   schedule:
     - cron: '0 2 * * 0'

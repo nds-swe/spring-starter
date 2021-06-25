@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -22,13 +22,14 @@ public class SortingFactory {
   @Qualifier("descendingStringOrderImpl")
   private Sortable descendingStrategy = new DescendingStringOrderImpl();
 
-  private Sortable[] collect(){
-    return new Sortable[]{ascendingStrategy, descendingStrategy};
+  private List<Sortable> sortables;
+
+  public SortingFactory(@Autowired List<Sortable> sortables) {
+    this.sortables = sortables;
   }
 
   public Sortable getSortOrder(String order) {
-    Sortable[] strategies = this.collect();
-    Optional<Sortable> strategy = Arrays.stream(strategies).filter(sortable -> sortable.supports(order)).findFirst();
+    Optional<Sortable> strategy = this.sortables.stream().filter(sortable -> sortable.supports(order)).findFirst();
     if (strategy.isPresent()){
       return strategy.get();
     } else {

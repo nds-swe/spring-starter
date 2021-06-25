@@ -13,9 +13,7 @@ import static org.hamcrest.Matchers.*;
 @Tag("IT")
 public class SkillControllerTestIT {
 
-  // Mock skillRepository in skillService
-  // skillService will be called from skillController, which is the REST API
-
+  // This test is a bit tricky to formulate as Integration Test because we do not have a database yet to mock
   final String[] skills = new String[]{
       "expedition-arctic",
       "ice-climbing",

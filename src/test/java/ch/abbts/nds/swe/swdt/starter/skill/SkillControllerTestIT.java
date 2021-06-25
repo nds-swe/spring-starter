@@ -1,5 +1,6 @@
 package ch.abbts.nds.swe.swdt.starter.skill;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -9,11 +10,15 @@ import java.util.Comparator;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @Tag("IT")
 public class SkillControllerTestIT {
 
-  final String[] skills = new String[]{
+  static final SkillsRepository mockedSkillsRepository = mock(SkillsRepository.class);
+
+  static final String[] skills = new String[]{
       "expedition-arctic",
       "ice-climbing",
       "language-hispanic",
@@ -21,6 +26,11 @@ public class SkillControllerTestIT {
       "heavy-machinery",
       "special-drillhead-rtx3300",
   };
+
+  @BeforeEach
+  public void init(){
+    when(mockedSkillsRepository.skills()).thenReturn(Arrays.asList(skills));
+  }
 
   @Test
   @DisplayName("/skills returns 200 and random elements")

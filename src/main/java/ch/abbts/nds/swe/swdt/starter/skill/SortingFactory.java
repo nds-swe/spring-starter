@@ -12,7 +12,7 @@ import java.util.Optional;
 @Component
 public class SortingFactory {
 
-  Logger logger = LoggerFactory.getLogger(SkillsController.class);
+  Logger logger = LoggerFactory.getLogger(SortingFactory.class);
 
   @Autowired
   @Qualifier("ascendingStringOrderImpl")

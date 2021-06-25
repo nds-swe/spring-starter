@@ -14,8 +14,8 @@ public class SkillsService {
   @Autowired
   private SortingFactory sortingFactory;
 
-  public List<String>  sort(String order){
-    List<String> skills =  skillsRepository.skills();
+  public List<String> sort(String order) {
+    List<String> skills = skillsRepository.skills();
     Sortable sortStrategy = sortingFactory.getSortOrder(order);
     return sortStrategy.sort(skills);
   }

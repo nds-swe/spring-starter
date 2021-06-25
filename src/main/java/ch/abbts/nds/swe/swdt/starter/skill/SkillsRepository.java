@@ -13,10 +13,10 @@ public class SkillsRepository {
   public List<String> skills() {
     logger.info("Repository called.");
     return Arrays.asList("expedition-arctic",
-        "ice-cldasfimbing",
-        "languageasdf-hispanic",
-        "languageasdf-english",
-        "heavy-macasdfhinery",
-        "special-drasdfillhead-rtx3300");
+        "ice-climbing",
+        "language-hispanic",
+        "language-english",
+        "heavy-machinery",
+        "special-drillhead-rtx3300");
   }
 }

@@ -12,6 +12,10 @@ import static org.hamcrest.Matchers.*;
 
 @Tag("IT")
 public class SkillControllerTestIT {
+
+  // Mock skillRepository in skillService
+  // skillService will be called from skillController, which is the REST API
+
   final String[] skills = new String[]{
       "expedition-arctic",
       "ice-climbing",

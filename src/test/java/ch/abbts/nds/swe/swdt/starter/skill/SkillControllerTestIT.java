@@ -8,8 +8,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.containsInRelativeOrder;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 @Tag("IT")
 public class SkillControllerTestIT {
@@ -34,8 +33,8 @@ public class SkillControllerTestIT {
         get("/skills").
         then().
         statusCode(200).
-        body("size()", is(6)
-        );
+        body("size()", is(6)).
+        body("$", hasItem("heavy-machinery"));
   }
 
   @Test

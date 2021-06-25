@@ -8,11 +8,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.containsInRelativeOrder;
+import static org.hamcrest.Matchers.*;
 
 @Tag("IT")
 public class SkillControllerTestIT {
 
+  // This test is a bit tricky to formulate as Integration Test because we do not have a database yet to mock
   final String[] skills = new String[]{
       "expedition-arctic",
       "ice-climbing",
@@ -33,8 +34,8 @@ public class SkillControllerTestIT {
         get("/skills").
         then().
         statusCode(200).
-        body("$", containsInRelativeOrder(skills)
-        );
+        body("size()", is(6)).
+        body("$", hasItem("heavy-machinery"));
   }
 
   @Test

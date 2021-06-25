@@ -1,6 +1,5 @@
 package ch.abbts.nds.swe.swdt.starter.skill;
 
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -12,22 +11,18 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 @Tag("unit")
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
-@DirtiesContext
 public class SkillServiceTest {
 
   final String[] skills = new String[]{
@@ -55,31 +50,25 @@ public class SkillServiceTest {
   @Test
   @DisplayName("Ensure that repository is mocked")
   public void ensure_mock(){
-    List<String> skills = skillsService.sort("ASC");
-    assertThat(skills, Matchers.<Collection<String>>allOf(
-        not(
-            contains("language-hispanic")
-        )
-    ));
+    List<String> skillResult = skillsService.sort("ASC");
+    assertThat(skillResult).doesNotContain("language-hispanic");
   }
 
   @Test
   @DisplayName("ASC")
   public void asc(){
-    List<String> skills = skillsService.sort("ASC");
-    assertThat(skills, Matchers.<Collection<String>>allOf(
-        hasSize(greaterThan(2)),
-        contains(skills.stream().sorted().toArray())
-    ));
+    List<String> skillResult = skillsService.sort("ASC");
+    String[] ascending = skills.clone();
+    Arrays.sort(ascending);
+    assertThat(skillResult).hasSize(6).containsExactly(ascending);
   }
 
   @Test
   @DisplayName("DESC")
   public void desc() {
-    List<String> skills = skillsService.sort("DESC");
-    assertThat(skills, Matchers.<Collection<String>>allOf(
-        hasSize(greaterThan(2)),
-        contains(skills.stream().sorted(Comparator.reverseOrder()).toArray())
-    ));
+    List<String> skillResult = skillsService.sort("DESC");
+    String[] descending = skills.clone();
+    Arrays.sort(descending, Collections.reverseOrder());
+    assertThat(skillResult).hasSize(6).containsExactly(descending);
   }
 }

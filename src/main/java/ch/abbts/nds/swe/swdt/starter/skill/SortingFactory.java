@@ -16,13 +16,13 @@ public class SortingFactory {
 
   @Autowired
   @Qualifier("ascendingStringOrderImpl")
-  private Sortable ascendingStrategy = new AscendingStringOrderImpl();
+  private Sortable ascendingStrategy;
 
   @Autowired
   @Qualifier("descendingStringOrderImpl")
-  private Sortable descendingStrategy = new DescendingStringOrderImpl();
+  private Sortable descendingStrategy;
 
-  private List<Sortable> sortables;
+  private final List<Sortable> sortables;
 
   public SortingFactory(@Autowired List<Sortable> sortables) {
     this.sortables = sortables;

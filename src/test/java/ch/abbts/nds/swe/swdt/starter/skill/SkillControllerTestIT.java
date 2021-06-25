@@ -9,6 +9,7 @@ import java.util.Comparator;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsInRelativeOrder;
+import static org.hamcrest.Matchers.is;
 
 @Tag("IT")
 public class SkillControllerTestIT {
@@ -33,7 +34,7 @@ public class SkillControllerTestIT {
         get("/skills").
         then().
         statusCode(200).
-        body("$", containsInRelativeOrder(skills)
+        body("size()", is(6)
         );
   }
 

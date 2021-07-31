@@ -1,37 +1,18 @@
 package ch.abbts.nds.swe.swdt.starter.expedition;
 
-public class ArcticExpedition implements Expedition {
-
-  private String name;
-  private String type;
-
-  ArcticExpedition() {
-  }
-
-  public ArcticExpedition(String name, String type) {
-
+public class ArcticExpedition extends Expedition {
+  public ArcticExpedition(String name) {
     this.name = name;
-    this.type = type;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
+    this.type = "arctic";
   }
 
   @Override
-  public String getSlogan() {
-    return "Arctic, brrr.";
+  public String getPackagingPreference() {
+    return "rather cold";
+  }
+
+  @Override
+  Integer getMaxWeight() {
+    return 2000;
   }
 }

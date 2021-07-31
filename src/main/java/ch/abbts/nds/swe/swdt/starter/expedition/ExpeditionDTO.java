@@ -1,13 +1,14 @@
 package ch.abbts.nds.swe.swdt.starter.expedition;
 
-public abstract class Expedition {
+public class ExpeditionDTO {
+
   protected String name;
   protected String type;
 
-  Expedition() {
+  public ExpeditionDTO() {
   }
 
-  public Expedition(String name, String type) {
+  public ExpeditionDTO(String name, String type) {
     this.name = name;
     this.type = type;
   }
@@ -27,8 +28,4 @@ public abstract class Expedition {
   public void setType(String type) {
     this.type = type;
   }
-
-  abstract String getPackagingPreference();
-
-  abstract Integer getMaxWeight();
 }

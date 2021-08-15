@@ -13,14 +13,28 @@ public class Scientist {
   Long id;
   private String name;
   private String role;
+  private String firstName;
 
   Scientist() {
   }
 
   public Scientist(String name, String role) {
-
     this.name = name;
     this.role = role;
+  }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public Scientist(String name, String role, String firstName) {
+    this.name = name;
+    this.role = role;
+    this.firstName = firstName;
   }
 
   public Long getId() {

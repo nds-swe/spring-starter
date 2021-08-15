@@ -18,7 +18,6 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     http
         .csrf().disable()
         .authorizeRequests()
-        .antMatchers("/employees/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .httpBasic();

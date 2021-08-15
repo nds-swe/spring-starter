@@ -19,6 +19,7 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: enabled
       MYSQL_DATABASE: exman
       MYSQL_USER: exman
+      # This CLEARLY is insecure and should read from the native ENV variable or a secret store
       MYSQL_PASSWORD: c73cb3o9c37cb3uc397c
 
   adminer:

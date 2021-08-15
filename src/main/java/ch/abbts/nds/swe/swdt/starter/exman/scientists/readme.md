@@ -8,6 +8,13 @@ docker-compose rm -v && \
 docker compose up --build --remove-orphans --force-recreate
 ```
 
+In order to not recreate mysql, run
+
+```
+./gradlew assemble && \                                                                                                                                          ─╯
+docker compose up --build --remove-orphans --force-recreate
+```
+
 ## Comment
 We do violate some testing principles here at the moment. We do use a volatile H2 database instead of mocking all repositories properly.
 

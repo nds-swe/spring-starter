@@ -3,11 +3,13 @@ package ch.abbts.nds.swe.swdt.starter.employee;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.context.ActiveProfiles;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 @Tag("IT")
+@ActiveProfiles("test")
 public class EmployeeControllerTestIT {
   @Test
   @DisplayName("/employees/ returns 200 and a 3 employees")

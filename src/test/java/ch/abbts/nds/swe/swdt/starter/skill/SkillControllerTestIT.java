@@ -3,6 +3,7 @@ package ch.abbts.nds.swe.swdt.starter.skill;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -11,6 +12,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 @Tag("IT")
+@ActiveProfiles("test")
 public class SkillControllerTestIT {
 
   // This test is a bit tricky to formulate as Integration Test because we do not have a database yet to mock

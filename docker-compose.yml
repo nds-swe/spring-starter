@@ -1,6 +1,30 @@
-version: "3.0"
+version: "3.8"
 services:
   spring-starter:
     build: .
+    # We need to either restart or timout since "No connections until MySQL init completes"
+    restart: always
     ports:
       - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      MYSQL_HOST: database
+
+  database:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: enabled
+      MYSQL_DATABASE: exman
+      MYSQL_USER: exman
+      MYSQL_PASSWORD: c73cb3o9c37cb3uc397c
+
+  adminer:
+    image: adminer
+    depends_on:
+      - database
+    restart: always
+    ports:
+      - "8081:8080"

@@ -18,6 +18,7 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     http
         .csrf().disable()
         .authorizeRequests()
+        .antMatchers("/swagger-ui/**", "/v2/api-docs", "/swagger-resources/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .httpBasic();

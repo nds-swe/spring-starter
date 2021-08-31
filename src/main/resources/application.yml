@@ -9,6 +9,13 @@ spring:
     password: c73cb3o9c37cb3uc397c # Ths is highly insecure and in production needs to read a real ENV variable OR use a proper store like Hashicorp Vault
     driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
+unleash:
+  api:
+    token: b616a4e60ccfd95c6fbcb5d36da4977a18fde2257dc0a3a583337e619074632e
+
+logging:
+  level:
+    no.finn.unleash: DEBUG
 ---
 spring:
   config:

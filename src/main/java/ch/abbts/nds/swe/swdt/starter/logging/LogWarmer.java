@@ -19,7 +19,7 @@ public class LogWarmer {
     LOG.info("Expedition {} created", 12345);
     LOG.debug("Adding {} scientists to the expedition {}", Arrays.asList("fred", "george"), 12345);
     LOG.warn("{} is not qualified to take part in {}", "fred", 12345);
-    LOG.error("Adding expedition failed", new RuntimeException("UNQUALIFIED_PARTICIPANT"));
+    //LOG.error("Adding expedition failed", new RuntimeException("UNQUALIFIED_PARTICIPANT"));
   }
 
 }

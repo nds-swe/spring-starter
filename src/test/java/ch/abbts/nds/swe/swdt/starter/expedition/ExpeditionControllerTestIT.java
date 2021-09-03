@@ -4,6 +4,7 @@ import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 
 @Tag("IT")
+@ActiveProfiles("test")
 public class ExpeditionControllerTestIT {
   @Test
   @DisplayName("POST /expeditions/ returns 201 and creates an expedition")

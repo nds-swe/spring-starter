@@ -19,6 +19,7 @@ jobs:
       - uses: actions/setup-java@v2.3.0
         with:
           java-version: 11
+          distribution: 'zulu'
       - name: Run tests
         run: ./gradlew test
       - name: Publish Test Results
@@ -35,6 +36,7 @@ jobs:
       - uses: actions/setup-java@v2.3.0
         with:
           java-version: 11
+          distribution: 'zulu'
       - name: Run tests
         run: ./gradlew integrationTest
       - name: Publish Test Results

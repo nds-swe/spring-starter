@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-java@v2.3.0
         with:
           java-version: 11
+          distribution: 'zulu'
       - run: ./gradlew build
         name: Build application
       - run: docker build . -t ndshfswe.azurecr.io/spring-starter:${{ github.sha }}
